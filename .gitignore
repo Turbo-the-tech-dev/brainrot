@@ -1,0 +1,17 @@
+# Editor backup files
+*.~*~
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+logs/*.json
