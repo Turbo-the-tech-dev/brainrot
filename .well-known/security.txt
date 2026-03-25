@@ -1,0 +1,7 @@
+# Brainrot Security Contact
+Contact: mailto:turbo@brainrot.internal
+Policy: https://github.com/Turbo-the-tech-dev/brainrot/blob/main/SECURITY.md
+Hiring: https://github.com/Turbo-the-tech-dev/brainrot/blob/main/CONTRIBUTORS
+Expires: 2027-03-10T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://github.com/Turbo-the-tech-dev/brainrot/blob/main/.well-known/security.txt
