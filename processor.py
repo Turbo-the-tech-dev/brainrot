@@ -3,6 +3,12 @@ import time
 import random
 
 def calculate_ohio_risk(load):
+    # Input validation to prevent DoS or complex number errors
+    if not isinstance(load, (int, float)):
+        raise ValueError("Load must be a numeric value")
+    if load < 0 or load > 100:
+        raise ValueError("Load must be between 0 and 100")
+
     # Logarithmic scaling for critical neural load
     return round((load ** 1.5) / 10, 2)
 
