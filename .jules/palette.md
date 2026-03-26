@@ -1,0 +1,3 @@
+## 2025-05-15 - [Terminal UI Accessibility]
+**Learning:** For terminal-style interfaces, decorative ASCII characters like long separator lines (e.g., `===`) should be hidden from screen readers using `<span aria-hidden="true">` to prevent repetitive and distracting announcements. Additionally, visual elements like progress bars made of characters can be made semantically meaningful using `role="progressbar"` and related ARIA attributes.
+**Action:** When working on text-only or ASCII-heavy interfaces, proactively identify decorative elements to hide and functional character strings to enhance with semantic roles.
