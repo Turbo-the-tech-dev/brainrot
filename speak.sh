@@ -13,6 +13,7 @@ LAST_THOUGHT=$(tail -n 1 "$TARGET_MD" | sed -e 's/.* - //')
 echo ">> [SPEAKING] \"$LAST_THOUGHT\""
 
 # Pipe to Termux TTS
+# SECURITY: $LAST_THOUGHT is quoted to prevent word splitting and globbing.
 termux-tts-speak "Sigma Protocol Update: $LAST_THOUGHT"
 
 echo ">> [SUCCESS] Vocalization complete."

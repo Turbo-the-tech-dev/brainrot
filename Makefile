@@ -8,7 +8,7 @@ help:
 	 @echo ">> AVAILABLE PROTOCOLS:"
 	 @echo "  make dashboard  - Launch the Live Sigma TUI (curses)"
 	 @echo "  make mutate     - Trigger a manual Autonomous Edit Cycle"
-	 @echo "  make pulse      - Force update the deadpan-brainrot.json telemetry"
+	 @echo "  make pulse      - Force update the telemetry.json telemetry"
 	 @echo "  make status     - View current git status and recent machine thoughts"
 
 dashboard:
