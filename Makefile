@@ -22,6 +22,7 @@ mutate:
 pulse:
 	 @echo ">> Calculating new Ohio Risk factors..."
 	 @python3 processor.py
+	 @# Update dashboard link if necessary (legacy)
 
 status:
 	 @echo ">> SYSTEM STATUS & RECENT THOUGHTS:"
