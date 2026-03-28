@@ -1,0 +1,3 @@
+## 2025-05-14 - Terminal Interface Accessibility Refresh
+**Learning:** Decorative ASCII characters (e.g., `=======`) in terminal-themed UIs are read aloud by screen readers as "equals equals equals...", which disrupts the user experience. Wrapping these in `<span aria-hidden="true">` within a `<pre>` block effectively silences them while preserving the visual layout. Additionally, visual-only progress bars can be made accessible by wrapping them in `<span>` with `role="progressbar"` and appropriate `aria-*` attributes.
+**Action:** Always wrap decorative ASCII and ASCII art in `<span aria-hidden="true">` and use semantic ARIA roles (like `main` and `progressbar`) within `<pre>`-based terminal UIs to ensure they are screen-reader friendly.
