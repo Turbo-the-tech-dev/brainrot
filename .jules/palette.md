@@ -1,0 +1,3 @@
+## 2025-05-14 - Accessible Terminal-Style Interfaces
+**Learning:** Terminal-style UIs that use `<pre>` tags for layout can be challenging for screen readers due to ASCII art and decorative separators. Using `role="main"` on the main container, `aria-hidden="true"` on decorative borders, and semantic ARIA roles (like `navigation` and `progressbar`) within the `<pre>` block significantly improves accessibility without breaking the text-only aesthetic.
+**Action:** Always wrap decorative ASCII in `<span>` with `aria-hidden="true"` and use ARIA landmarks/roles to provide structure to text-only terminal simulations.
