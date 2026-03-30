@@ -1,0 +1,3 @@
+## 2025-05-14 - Terminal UI Accessibility Enhancements
+**Learning:** Terminal-style UIs that use ASCII art for visual structure (like `===` lines) can be very noisy for screen reader users. Silencing these decorative elements with `aria-hidden="true"` and providing semantic roles (like `role="main"` and `role="progressbar"`) significantly improves the accessibility of "text-only" interfaces without altering their unique visual aesthetic.
+**Action:** Always wrap decorative ASCII art in `aria-hidden="true"` and use ARIA roles to provide semantic context for visual-only indicators like text-based progress bars.
