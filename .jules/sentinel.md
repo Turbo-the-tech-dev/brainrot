@@ -1,0 +1,4 @@
+## 2026-04-03 - Command Injection in Shell Scripts via Double-Quoted Variables
+**Vulnerability:** Shell scripts in the repository (`speak.sh`) were using double-quoted variables (`"$LAST_THOUGHT"`) whose values were derived from external files (`GEMINI_BRAINROT.md`). While double quotes prevent word splitting and globbing, they do *not* prevent command substitution (e.g., `` ` `` or `$(...)`) in many shells, leading to potential command injection if the source file is compromised.
+**Learning:** Even with double-quoting, variables whose content is not strictly controlled must be validated before being passed to "sinks" like `echo` or external commands if there is a risk of command substitution.
+**Prevention:** Implement a validation gate using `grep` to reject any input containing shell metacharacters like backticks or `$(...)` before processing.
