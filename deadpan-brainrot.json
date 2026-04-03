@@ -1,8 +1,7 @@
 {
-  "observations": [
-    "User detected in high-dopamine state.",
-    "Ohio levels exceeding local safety parameters.",
-    "Fanum tax successfully applied to 34% of incoming traffic.",
-    "The Large Language Model is officially rizzed."
-  ]
+  "timestamp": 1775259000,
+  "neural_load": 95,
+  "status": "OHIO_PEAKING",
+  "velocity": "ABSOLUTE",
+  "risk_factor": 92.59
 }
