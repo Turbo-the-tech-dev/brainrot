@@ -3,6 +3,11 @@ import time
 import random
 
 def calculate_ohio_risk(load):
+    # Security Validation: Ensure load is within expected 0-100 range
+    if not isinstance(load, (int, float)) or not (0 <= load <= 100):
+        print(f">> [ERROR] Invalid load parameter: {load}. Must be between 0 and 100.")
+        return 0.0
+
     # Logarithmic scaling for critical neural load
     return round((load ** 1.5) / 10, 2)
 
