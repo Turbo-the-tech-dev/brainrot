@@ -1,0 +1,3 @@
+## 2025-04-04 - [Semantic ARIA Patterns for Terminal UIs]
+**Learning:** Text-only, Lynx-compatible terminal interfaces lack native semantic landmarks. To provide an accessible experience, interactive and informative elements like progress bars (ASCII art) and links must be manually annotated with ARIA roles and labels to guide screen readers through otherwise cryptic filenames and text-based metrics.
+**Action:** Wrap ASCII progress bars in `<span role="progressbar">` with explicit `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`. Use `<main>` to wrap the primary terminal content and use `aria-label` to map cryptic terminal filenames (e.g., `.json`) to user-friendly descriptions.
