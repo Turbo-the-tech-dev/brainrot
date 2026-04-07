@@ -68,7 +68,8 @@ check_issue "Transparency: Missing CHANGELOG.md" "Helps users track features, fi
 check_issue "Docs: Missing SUPPORT.md" "Define where users should go for help (outside of the issue tracker)." "$missing"
 
 # 9. Missing RoadMap
-grep -riq "roadmap" README.md . >/dev/null 2>&1 && missing=false || missing=true
+# Performance: Exclude binary and metadata dirs from recursive grep to speed up audit
+grep -riq --exclude-dir={.git,node_modules,media,archives} "roadmap" . >/dev/null 2>&1 && missing=false || missing=true
 check_issue "Vision: Missing Roadmap" "Adding a roadmap helps contributors align with future goals." "$missing"
 
 echo -e "\n${YELLOW}--- Phase 2: Development Experience (DX) ---${NC}"
@@ -82,7 +83,8 @@ check_issue "DX: Missing .nvmrc" "Specify the recommended Node.js version for co
 check_issue "Maintenance: Missing CODEOWNERS" "Ensures the right people are automatically tagged for PR reviews." "$missing"
 
 # 12. Missing .env.example
-grep -r "process.env" . >/dev/null 2>&1 && [ ! -f .env.example ] && missing=true || missing=false
+# Performance: Exclude binary and metadata dirs from recursive grep to speed up audit
+grep -r --exclude-dir={.git,node_modules,media,archives} "process.env" . >/dev/null 2>&1 && [ ! -f .env.example ] && missing=true || missing=false
 check_issue "DX: Missing .env.example" "Provide an example file for environment variables." "$missing"
 
 # 13. Missing .vscode settings
@@ -108,7 +110,8 @@ check_issue "Quality: Missing Linter/Formatter Config" "Add Prettier or ESLint c
 check_issue "Quality: Missing Test Suite" "Implementing unit tests is highly recommended." "$missing"
 
 # 18. Missing API Specification
-grep -riq "app.get" . >/dev/null 2>&1 && [ ! -f openapi.yaml ] && missing=true || missing=false
+# Performance: Exclude binary and metadata dirs from recursive grep to speed up audit
+grep -riq --exclude-dir={.git,node_modules,media,archives} "app.get" . >/dev/null 2>&1 && [ ! -f openapi.yaml ] && missing=true || missing=false
 check_issue "Docs: Missing API Specification" "Detected route definitions but no OpenAPI/Swagger documentation." "$missing"
 
 # 19. Missing Dependency Lockfile
