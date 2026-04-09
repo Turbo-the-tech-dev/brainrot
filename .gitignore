@@ -15,3 +15,8 @@ Thumbs.db
 # Logs
 *.log
 logs/*.json
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
