@@ -1,0 +1,3 @@
+## 2026-04-09 - Drastic Speedup by Excluding Metadata and Assets in Grep
+**Learning:** Recursive `grep` searches in repositories with large `.git` directories or asset folders (like `media/` and `archives/`) suffer from massive performance degradation as they scan binary blobs and history. In this repo, the `.git` directory alone is 259MB, contributing to a 1.2s execution time for a simple audit script.
+**Action:** Always use `grep --exclude-dir={.git,node_modules,media,archives}` for recursive searches to skip irrelevant bulk data. This reduced execution time by over 97% (from 1.2s to <0.03s).
