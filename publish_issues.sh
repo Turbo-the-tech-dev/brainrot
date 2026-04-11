@@ -1,4 +1,5 @@
 #!/bin/bash
+# Performance Optimization: Optimized recursive grep calls to skip large non-source directories./bin/bash
 
 # Repository Health & Scaling Audit Script
 # Publishes up to 50 issues to GitHub for missing documentation, security, and DX.
@@ -64,7 +65,7 @@ fi
 publish_issue "Compliance: Generate SBOM" "Add a CycloneDX or SPDX manifest for supply chain transparency." "true"
 
 # 8. Missing CSP Headers (if web files exist)
-ls *.html >/dev/null 2>&1 && (grep -rq "Content-Security-Policy" . || missing=true) || missing=false
+ls *.html >/dev/null 2>&1 && (grep --exclude-dir={.git,node_modules,media,archives} -rq "Content-Security-Policy" . || missing=true) || missing=false
 publish_issue "Security: Missing CSP Headers" "Implement CSP to prevent XSS attacks." "$missing"
 
 # 9. Branch Protection
@@ -186,7 +187,7 @@ publish_issue "Refactor: Remove Unused Dependencies" "Audit package.json for lib
 publish_issue "Quality: Migrate to TypeScript" "Add type safety to prevent runtime errors." "$missing"
 
 # 40. Hardcoded URLs
-grep -r "http://" . | grep -v "node_modules" | grep -q "." && missing=true || missing=false
+grep --exclude-dir={.git,node_modules,media,archives} -r "http://" .  | grep -q "." && missing=true || missing=false
 publish_issue "Refactor: Remove Hardcoded URLs" "Move API endpoints and URLs to a config file or environment variables." "$missing"
 
 echo -e "\n${BLUE}--- Group 5: Community & Metadata ---${NC}"
