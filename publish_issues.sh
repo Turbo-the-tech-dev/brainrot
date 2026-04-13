@@ -64,7 +64,7 @@ fi
 publish_issue "Compliance: Generate SBOM" "Add a CycloneDX or SPDX manifest for supply chain transparency." "true"
 
 # 8. Missing CSP Headers (if web files exist)
-ls *.html >/dev/null 2>&1 && (grep -rq "Content-Security-Policy" . || missing=true) || missing=false
+ls *.html >/dev/null 2>&1 && (grep -rq --exclude-dir={.git,node_modules,media,archives} "Content-Security-Policy" . || missing=true) || missing=false
 publish_issue "Security: Missing CSP Headers" "Implement CSP to prevent XSS attacks." "$missing"
 
 # 9. Branch Protection
@@ -165,7 +165,7 @@ publish_issue "Quality: Add Husky/Pre-commit Hooks" "Run tests and linting local
 publish_issue "Refactor: Use Absolute Imports" "Replace relative imports with absolute paths." "true"
 
 # 34. Large File Bloat
-find . -type f -size +1M | grep -q "." && missing=true || missing=false
+find . -name .git -prune -o -name node_modules -prune -o -name media -prune -o -name archives -prune -o -type f -size +1M -print | grep -q "." && missing=true || missing=false
 publish_issue "Performance: Large Files in Repo" "Identify and move large binary files to LFS or external storage." "$missing"
 
 # 35. Circular Dependencies
@@ -186,7 +186,7 @@ publish_issue "Refactor: Remove Unused Dependencies" "Audit package.json for lib
 publish_issue "Quality: Migrate to TypeScript" "Add type safety to prevent runtime errors." "$missing"
 
 # 40. Hardcoded URLs
-grep -r "http://" . | grep -v "node_modules" | grep -q "." && missing=true || missing=false
+grep -r --exclude-dir={.git,node_modules,media,archives} "http://" . | grep -q "." && missing=true || missing=false
 publish_issue "Refactor: Remove Hardcoded URLs" "Move API endpoints and URLs to a config file or environment variables." "$missing"
 
 echo -e "\n${BLUE}--- Group 5: Community & Metadata ---${NC}"
