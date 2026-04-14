@@ -1,0 +1,3 @@
+## 2026-04-14 - Optimized Recursive Repository Scans
+**Learning:** Recursive `grep` and `find` operations in this repository are significantly slowed down by large non-source directories like `.git` (259MB), `media` (191MB), and `archives` (70MB). The `media` directory also contains binary files that cause `grep` to output unnecessary "binary file matches" messages.
+**Action:** Always use `--exclude-dir={.git,node_modules,media,archives}` for `grep -r` and `-prune` for `find` commands to skip these directories. This optimization reduced `audit.sh` execution time from ~1.19s to ~0.05s (24x speedup) and `publish_issues.sh` from ~0.64s to ~0.20s (3x speedup).
