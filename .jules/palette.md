@@ -1,0 +1,3 @@
+## 2026-03-14 - [Semantic Landmarks in Preformatted Terminal UIs]
+**Learning:** For terminal-style UIs using `<pre>` tags, accessibility can be significantly improved without breaking the layout by using inline `<span>` elements with ARIA roles (banner, main, navigation, contentinfo). Decorative ASCII separators should be explicitly hidden with `aria-hidden="true"` to prevent screen readers from announcing repetitive characters.
+**Action:** Always wrap decorative ASCII in `<span aria-hidden="true">` and use semantic ARIA landmarks via `<span>` tags inside `<pre>` blocks for text-only dashboards.
